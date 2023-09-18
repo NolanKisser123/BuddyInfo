@@ -1,17 +1,21 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class AddressBook {
-    public ArrayList<BuddyInfo> collection = new ArrayList<BuddyInfo>();
+    public ArrayList<BuddyInfo> addressBook = new ArrayList<BuddyInfo>();
 
-    public void addBuddy(){
-
+    public void addBuddy(BuddyInfo aBuddy){
+        addressBook.add(aBuddy);
     }
-    public void removeBuddy(){
-
+    public void removeBuddy(BuddyInfo aBuddy){
+        addressBook.remove(aBuddy);
     }
 
     public static void main(String[] args){
-        System.out.println("Address Book");
+        BuddyInfo buddy = new BuddyInfo("Tom", "Carleton");
+        AddressBook addressBook = new AddressBook();
+        addressBook.addBuddy(buddy);
+        System.out.println(addressBook);
+        addressBook.removeBuddy(buddy);
+
     }
 }
