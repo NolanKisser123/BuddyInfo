@@ -4,18 +4,21 @@ public class AddressBook {
     public ArrayList<BuddyInfo> addressBook = new ArrayList<BuddyInfo>();
 
     public void addBuddy(BuddyInfo aBuddy){
-        addressBook.add(aBuddy);
+        if (aBuddy != null) {
+            addressBook.add(aBuddy);
+        }
     }
-    public void removeBuddy(BuddyInfo aBuddy){
-        addressBook.remove(aBuddy);
+    public BuddyInfo removeBuddy(int index){
+        if(index >= 0 && index < addressBook.size()) {
+            return addressBook.remove(index);
+        }
+        return null;
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         BuddyInfo buddy = new BuddyInfo("Tom", "Carleton");
         AddressBook addressBook = new AddressBook();
         addressBook.addBuddy(buddy);
-        System.out.println(addressBook);
-        addressBook.removeBuddy(buddy);
-
+        addressBook.removeBuddy(0);
     }
 }
